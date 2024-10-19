@@ -89,4 +89,12 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Interest::class, 'user_interest');
     }
+
+    public function mathes()
+    {
+        return $this->belongsToMany(User::class, 'user_matches', 'first_user_id', 'second_user_id')
+            ->orWhere('user_matches.second_user_id', $this->id)
+            ->where('user_matches.status', 1)
+            ->withPivot('id');
+    }
 }
