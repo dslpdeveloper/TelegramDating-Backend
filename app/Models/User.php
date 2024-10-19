@@ -59,4 +59,19 @@ class User extends Authenticatable
         'is_pro_user' => 'boolean',
         'has_telegram_premium' => 'boolean'
     ];
+
+    public function gender()
+    {
+        return $this->belongsTo(Gender::class)->select('id', 'name');
+    }
+
+    public function receivedLikes()
+    {
+        return $this->hasMany(Like::class, 'like_for');
+    }
+
+    public function sentLikes()
+    {
+        return $this->hasMany(Like::class, 'like_by');
+    }
 }
