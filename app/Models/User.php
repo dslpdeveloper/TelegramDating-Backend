@@ -74,4 +74,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Like::class, 'like_by');
     }
+
+    public function receivedDislikes()
+    {
+        return $this->hasMany(Like::class, 'dislike_for');
+    }
+
+    public function sentDislikes()
+    {
+        return $this->hasMany(Like::class, 'dislike_by');
+    }
 }
