@@ -21,6 +21,17 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'tg_id',
+        'age',
+        'gender_id',
+        'tg_username',
+        'bio',
+        'user_type',
+        'status',
+        'has_telegram_premium',
+        'is_pro_user',
+        'interested_in',
+        'photos'
     ];
 
     /**
@@ -29,8 +40,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
+        'email',
+        'email_verified_at',
         'password',
         'remember_token',
+        'created_at',
+        'updated_at'
     ];
 
     /**
@@ -41,5 +56,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'is_pro_user' => 'boolean',
+        'has_telegram_premium' => 'boolean'
     ];
 }
