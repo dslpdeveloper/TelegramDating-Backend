@@ -84,4 +84,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Like::class, 'dislike_by');
     }
+
+    public function interests()
+    {
+        return $this->belongsToMany(Interest::class, 'user_interest');
+    }
 }
